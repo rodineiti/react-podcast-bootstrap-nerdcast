@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://nextjs.org/">
+  <a href="https://pt-br.reactjs.org/">
     REACTJS
   </a>
 </h1>
