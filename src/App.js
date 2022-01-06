@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Cards from "./components/Cards";
 import api from "./services/api";
+
+import "./styles.css";
+import { setPodcast } from "./services/storage";
 
 export default function App() {
   const [podcasts, setPodcasts] = useState([]);
@@ -39,6 +42,10 @@ export default function App() {
       newPage--;
       setPage(newPage);
     }
+  }
+
+  function handleSetStorage(podcastId) {
+    setPodcast(podcastId);
   }
 
   return (
@@ -99,7 +106,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <Cards podcasts={podcasts} />
+          <Cards podcasts={podcasts} onSetCookie={handleSetStorage} />
           <div className="container">
             <div className="row">
               <div className="col-md-12 d-flex justify-content-between align-items-center">
