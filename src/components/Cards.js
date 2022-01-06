@@ -1,6 +1,7 @@
 import React from "react";
+import { isPodcastWatched } from "../services/storage";
 
-export default function Cards({ podcasts }) {
+export default function Cards({ podcasts, onSetCookie }) {
   function formatDate(date) {
     let [d, h] = date.split("T");
     d = d.split("-").reverse().join("/");
@@ -42,6 +43,14 @@ export default function Cards({ podcasts }) {
                     <source src={podcast.audio_high} type="audio/mpeg" />
                     Your browser does not support the audio tag.
                   </audio>
+                  {!isPodcastWatched(podcast.id) && (
+                    <button
+                      className="btn btn-outline-success ml-2"
+                      onClick={() => onSetCookie(podcast.id)}
+                    >
+                      Visto
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
