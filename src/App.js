@@ -11,7 +11,7 @@ import { setPodcast } from "./services/storage";
 export default function App() {
   const [podcasts, setPodcasts] = useState([]);
   const [page, setPage] = useState(1);
-  const [order, setOrder] = useState("desc");
+  const [order, setOrder] = useState("asc");
   const [search, setSearch] = useState("");
 
   useEffect(() => {
